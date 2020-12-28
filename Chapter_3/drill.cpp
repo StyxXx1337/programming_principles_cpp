@@ -33,5 +33,26 @@ int main(){
             << " again. Thank you.\n";
     }
     
+    cout << "How old is your friend?\n"
+        << "Please enter the age: ";
+    int age{0};
+
+    cin >> age;
+
+    if ((age <= 0) || (age >= 110)){
+        simple_error("You got to be kidding!");
+    }
+    else if (age < 12){
+        cout << "Next year you will be " << age <<" years old\n";
+    }
+    else if (age == 17){
+        cout << "Next year can vote!\n";
+    }
+    else if (age > 70){
+        cout << "I hope you enjoy your retirement\n";
+    }
+    else{
+        cout << "You are " << age << " years old.";
+    }
 
 }
