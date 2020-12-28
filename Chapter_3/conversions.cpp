@@ -4,6 +4,7 @@ int main(){
 
     double d = 0;
     while (cin>>d){
+        cout << "Input: ";
 
         int i = d;
         char c = i;
