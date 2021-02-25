@@ -15,7 +15,6 @@ int sum_vector(vector<int> vec){
 
 int main(){
     
-    
     vector <int> mon;
     vector <int> tue;
     vector <int> wed;
@@ -34,7 +33,7 @@ int main(){
         cin >> value;
 
         if (day == "Monday" || day == "Mon" || day == "monday" || day == "mon"){
-        mon.push_back(value);
+            mon.push_back(value);
         }
         else if(day == "Tuesday" || day == "Tue" || day == "tuesday" || day == "tue"){
             tue.push_back(value);
@@ -55,7 +54,6 @@ int main(){
             sun.push_back(value);
         }
         else{
-
             ++rejected;
         }
 
