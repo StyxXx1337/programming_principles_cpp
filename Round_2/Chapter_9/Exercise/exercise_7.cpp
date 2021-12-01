@@ -1,12 +1,26 @@
 #include "../../../!_Misc/std_lib_facilities.h"
 
+// enum for Genre of videos
+enum class Genre{
+  fiction=0, nonfiction, biography, children, periodical, undefined
+};
+
+const vector<string> Gen_string{
+  "Fiction", 
+  "Non-Fiction", 
+  "Biography", 
+  "Children", 
+  "Periodical", 
+  "Undefined"
+  };
+
 // ----------------------- Date Class ------------------------------------
 // simple date struct without much checking
 struct Date{
   Date(): year{0}, month{1}, day{1}{};
   Date(int y, int m, int d);
 
-private:
+private:                                                                                          
   int year;
   int month;
   int day;
@@ -26,7 +40,7 @@ class Book{
 public:
 // Constructor
   Book(string i);
-  Book(string t, string a, string i, Date d, int p);
+  Book(string t, string a, string i, Date d, Genre g, int p);
 
 // Book Functions
   void check_out(){ checked_out = true; };
@@ -37,6 +51,7 @@ public:
   string get_author() const { return author; };
   string get_title() const { return title; };
   string get_isbn() const { return isbn; };
+  Genre get_genre() const { return genre; };
   int get_pages() const { return pages; };
 
 // Operators
@@ -53,6 +68,7 @@ private:
   string title;
   string author;
   Date date;
+  Genre genre;
   int pages;
   bool checked_out;
 };
@@ -69,6 +85,13 @@ Book::Book(string i)
   date = d;
   pages = 0;
   checked_out = false;
+  genre = Genre::undefined;
+}
+
+Book::Book(string t, string a, string i, Date d, Genre g, int p)
+  :title{t}, author{a}, isbn{i}, date{d}, genre{g}, pages{p}
+  {
+    if (!is_valid_isbn(i)) error("invalid ISBN.");
 }
 
 bool Book::is_valid_isbn(string i){
@@ -93,19 +116,35 @@ bool Book::is_valid_isbn(string i){
 }
 
 // ------------------ Operator Overloading ----------------------------
+// Added an operator<< for the Genre Class
+ostream& operator<<(ostream& os, const Genre g){
+  return os << Gen_string[int(g)];
+}
+
 // Part of exercise 6.
-ostream& operator<<(ostream& os,const Book& b){
+ostream& operator<<(ostream& os, const Book& b){
   return os << "Title: \t\t" << b.get_title() << endl
             << "Author: \t" << b.get_author() << endl
             << "ISBN: \t\t" << b.get_isbn() << endl
-            << "Pages: \t\t" << b.get_pages();
+            << "Pages: \t\t" << b.get_pages() << endl
+            << "Genre: \t\t" << b.get_genre();
 }
 
 int main(){
-
+  Date d {1999,11,21};
+  Genre g {Genre::nonfiction};
   Book b1 {"111-222-333-A"};
   Book b2 {"999-222-333-A"};
   Book copy1 {"111-222-333-A"}; 
+  Book long_book {"C++", 
+    "Bjoerne", 
+    "111-222-333-B", 
+    Date {1888,9,9},
+    Genre::children, 
+    1376
+    };
+
+  cout << long_book << endl;
 
   return 0;
 }

@@ -5,7 +5,7 @@
 - `const`
 - constructor
 - destructor
-- enum
+- `enum`
 - enumaration
 - enumerator
 - helper function
@@ -15,7 +15,7 @@
 - interface
 - invariant
 - representation
-- struct
+- `struct`
 - structure
 - user-defined types
 - valid state
