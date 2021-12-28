@@ -17,7 +17,7 @@ struct Point
 
     friend std::ostream& operator<<(std::ostream& ost, const Point& p)
     {
-        return ost << '(' << p.x << ',' << p.y << ')' << endl;
+        return ost << '(' << p.x << ',' << p.y << ')' << std::endl;
     }
 };
 
@@ -35,6 +35,11 @@ int main(){
       break;
     }
 
-    point_list.push_back(temp);
+    original_points.push_back(temp);
+  }
+
+  std::cout << "\n\n======== That is your list: ========= \n";
+  for (auto p : original_points){
+    std::cout << p;
   }
 }
