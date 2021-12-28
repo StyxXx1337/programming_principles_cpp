@@ -102,28 +102,6 @@ bool Money::valid_currency(std::string curr){
   return false;
 }
 
-std::istream& operator>>(std::istream& is, Money& m){
-  char c1, c2, c3;
-  double amount = 0;
-  std::string currency = "";
-  
-  is >> c1 >> c2 >> c3 >> amount;
-  if (!is) return is;
-  
-  currency[0] = c1;
-  currency[1] = c2;
-  currency[2] = c3;
-
-  if (m.valid_currency(currency) == true){
-    m = Money(amount, currency);
-  }
-  else{
-    std::cout << "ERROR!!!!" << std::endl;
-    is.clear(std::ios_base::failbit);
-  }
-  return is;
-}
-
 int main()
 {
 
@@ -143,10 +121,6 @@ int main()
   std::cout << dkk << " - " << usd << " = " << dkk - usd << std::endl;
   std::cout << usd << " + " << dkk << " = " << usd + dkk << std::endl;
   Money jpy_input{0, "USD"}; 
-  //std::string temp = "JPY100";
-  std::cin >> jpy_input; 
-  std::cout << jpy_input << std::endl;
-  // std::cout << m1 << " * " << 3 << " = " << m2 / m1 << std::endl; // Won't compile.
 
   return 0;
 }
