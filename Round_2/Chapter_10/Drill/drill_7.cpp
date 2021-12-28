@@ -86,11 +86,16 @@ int main(){
   save_points(original_points); 
   vector<Point> processed_points = reload_points("drill_4_false.txt");
   
+  // Drill 7
   std::cout << "Original: \t\t\t Processed\n";
-  
   for (int i = 0; i < original_points.size(); ++i){
-    std::cout << original_points[i] << "\t\t\t\t" << processed_points[i];
+    if (original_points[i] == processed_points[i]){
+      std::cout << original_points[i] << "\t\t\t\t" << processed_points[i] 
+                << std::endl;
+    }
+    else{
+      std::cout << "Oh my gosh, values don't match... What happend???" << std::endl;
+    }
   }
-
   return 0;
 }
