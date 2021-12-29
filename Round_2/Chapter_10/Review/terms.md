@@ -1,1 +1,24 @@
-# Terms Chapter XX
+# Terms Chapter 10
+
+- `bad()`
+- `buffer`
+- `clear()`
+- `close()`
+- dvice driver
+- `eof()`
+- `fail()`
+- file
+- `good()`
+- `ifstream`
+- input device
+- input operator
+- `iostream`
+- `istream`
+- `ofstream`
+- `ostream`
+- `open()`
+- output device output operator
+- stream state
+- structred file
+- terminator
+- `unget()`
