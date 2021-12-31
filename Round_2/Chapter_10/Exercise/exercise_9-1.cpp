@@ -18,35 +18,59 @@ void combine_sorted_files(std::string file1, std::string file2){
 
   ifs1 >> word1;
   ifs2 >> word2;
-
   // FIXME: Loop doesn't work yet...
-  while(!(ifs1.eof() && ifs2.eof())){
-    
+  
+  while(!(ifs1.eof() || ifs2.eof())){
     if (word1 < word2){
       ofs << word1 << ' ';
       ifs1 >> word1;
-      continue;
     }
-    else{
+    else if (word2 <= word1){
       ofs << word2 << ' ';
       ifs2 >> word2;
-      continue;
     }
-
     if (ifs1.eof()){
-      while(!ifs2.eof()){
-        ifs2 >> word2;
-        ofs << word2 << ' ';
-      }
-      break;
+      cout << "IFS1 EOF. Word 1: " << word1;
     }
-    else if(ifs2.eof()){
-      while(!ifs1.eof()){
+    else if (ifs2.eof()){
+      cout << "IFS2 EOF. Word 2: " << word2;
+    }
+  }
+
+  while (true){
+    if (word1 < word2 || word2 == "!"){
+      ofs << word1 << ' ';
+      if (ifs1.eof()){
+        break;
+      }
+      else{
         ifs1 >> word1;
-        ofs << word1 << ' ';
       }
-      break;
     }
+    else if (word2 <= word1 || word1 == "!"){
+      ofs << word2 << ' ';
+      if (ifs2.eof()){
+        break;
+      }
+      else{
+        ifs2 >> word2;
+      }
+    }
+  }
+  
+  if (ifs1.eof()){
+    while(!ifs2.eof()){
+      ofs << word2 << ' ';
+      ifs2 >> word2;
+    }
+    ofs << word2;
+  }
+  else if (ifs2.eof()){
+    while(!ifs1.eof()){
+      ofs << word1 << ' ';
+      ifs1 >> word1;
+    }
+    ofs << word1;
   }
 }
 
