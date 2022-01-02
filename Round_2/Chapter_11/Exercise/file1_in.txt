@@ -1,0 +1,4 @@
+This is a normal text. It has UPPERCASE and lowercase words.
+Also new lines and    tabs are included!
+
+THE END!
