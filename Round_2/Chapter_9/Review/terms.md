@@ -1,0 +1,21 @@
+# Terms Chapter 9
+
+- built-in types
+- `class`
+- `const`
+- constructor
+- destructor
+- `enum`
+- enumaration
+- enumerator
+- helper function
+- implementation
+- in-class intializer
+- inlining
+- interface
+- invariant
+- representation
+- `struct`
+- structure
+- user-defined types
+- valid state

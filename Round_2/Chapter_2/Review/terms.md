@@ -1,0 +1,22 @@
+# Terms Chapter 2
+
+- `//`
+- `<<`
+- C++
+- comment
+- compiler
+- compiler-time error
+- `cout`
+- executable
+- function
+- header
+- IDE
+- `#include`
+- library
+- linker
+- `main()`
+- object code
+- output
+- program
+- source code
+- statement
