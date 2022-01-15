@@ -1,35 +1,24 @@
 #include "../../../!_Misc/std_lib_facilities.h"
 
-const std::string filename = {"file12.txt"};
+std::string reverse_string(std::string str){
+  stringstream ss {str};
+  std::string result;
 
-
-vector<std::string> parse_line(std::string line){
-  stringstream ss {line};
-  vector<std::string> dict;
-
-  for (std::string st; ss >> st;){
-    dict.push_back(st);
+  for (char c; ss.get(c);){
+    result = c + result;
   }
 
-  return dict;
+  return result;
 }
 
 int main(){
 
-  ifstream ifs {filename};
-
   std::string line;
-  while (!ifs.eof()){
-    getline(ifs, line);
+  getline(cin, line);
 
-    vector<std::string> dict;
-    dict = parse_line(line);
-
-    for (int i = (dict.size() - 1); i >= 0; --i){
-      std::cout << dict[i] << ' ';
-    }
-    cout << "\n\n";
-  }
+  cout << "Original: " << line << std::endl;
+  line = reverse_string(line);
+  cout << "Reversed: " << line << std::endl;
 
   return 0;
 }
